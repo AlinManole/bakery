@@ -23,9 +23,9 @@ class App extends Component {
       <div>
         <h1 className="m-3">hello</h1>
         <div className="d-flex direction-row">
-          <Button text="add" handleClick={() => this.handleButtonClick("add")} />
-          <Button list="list" handleClick={() => this.handleButtonClick("list")} />
-          <Button pay="pay" handleClick={() => this.handleButtonClick("pay")} />
+          <Button isSelected={("add"=== this.state.activeTab)} text="add" handleClick={() => this.handleButtonClick("add")} />
+          <Button isSelected={("list"=== this.state.activeTab)} text="list" handleClick={() => this.handleButtonClick("list")} />
+          <Button isSelected={("pay"=== this.state.activeTab)} text="pay" handleClick={() => this.handleButtonClick("pay")} />
         </div>
       </div>
     );

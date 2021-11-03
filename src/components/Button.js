@@ -5,10 +5,13 @@ class Button extends Component {
         console.log("Props Log - " , this.props)
         return (
             <div>
-                <button isSelected="" onClick={this.props.handleClick} className="btn m-2 btn-outline-primary">{this.props.text} {this.props.list} {this.props.pay} </button>
+                <button onClick={this.props.handleClick} className="btn m-2 btn-outline-primary">{this.props.text}</button>
             </div>
         );
     }
-}
 
+}
 export default Button;
+
+
+
