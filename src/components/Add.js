@@ -1,39 +1,61 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { Component } from 'react'
 
-class Add extends React.Component{
-    constructor() {
-        super()
-        this.state = {
-            name: "",
-            price: 0
-        }
-        this.handleNameChange = this.handleNameChange.bind(this)
-        this.handlePriceChange = this.handlePriceChange.bind(this)
-    }
+class Add extends Component {
+  constructor() {
+    super()
 
-    handleNameChange(e) {
-        this.setState({name : e.target.value})
+    this.state = {
+      name: "",
+      price: 0
     }
+    
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handlePriceChange = this.handlePriceChange.bind(this)
+  }
 
-    handlePriceChange(e) {
-        this.setState({price: e.target.value})
-    }
+  handleNameChange(e) {
+    this.setState({ name: e.target.value })
+  }
+
+  handlePriceChange(e) {
+    this.setState({ price: e.target.value })
+  }
 
   render() {
-      console.log(this.state.name);
-      const { name, price} = this.state
-    return(
-        <>
-            <h1>Add</h1>
-            <input className="w-25" onChange={this.handleNameChange} type="text" className="form-control" placeholder="rentre du text " />
-            <input className="w-25" onChange={this.handlePriceChange} type="range" className="form-range"  min="1" max="10"></input>
-            <span>{price} </span>
-            <button onClick={() => this.props.addItem(name,price)} type="button" className="btn btn-primary">ok</button>
-        </>
-                    
-    )
+    const { name, price } = this.state
+
+    return (
+      <>
+        <h1>Add</h1>
+
+        <label className="form-label">Name</label>
+        <input
+          className="form-control mb-4"
+          type="text"
+          onChange={this.handleNameChange}
+          value={name}
+        />
+
+        <label className="form-label">Price: {price}$</label>
+        <br />
+        <input
+          type="range"
+          onChange={this.handlePriceChange}
+          min="1"
+          max="10"
+          value={price}
+        />
+
+        <br />
+        <button
+          className="btn mt-3 btn-outline-primary"
+          onClick={() => this.props.addItem(name, price)}
+        >
+          Ajouter
+        </button>
+      </>
+    );
   }
 }
 
-export default Add;
+export default Add

@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { Component } from 'react'
 
 class Button extends Component {
-    render() {
-        console.log("Props Log - " , this.props)
-        return (
-            <div>
-                <button onClick={this.props.handleClick} className={`btn btn-outline-primary m-2 ${this.props.isSelected && 'btn-primary text-white'}`}>{this.props.text}</button>
-            </div>
-        )
-    }
+  render() {
+    const { text, handleClick, isSelected } = this.props
 
+    return (
+      <button
+        type="button"
+        className={`btn me-3 ${isSelected ? "btn-primary" : "btn-outline-primary"}`}
+        onClick={() => handleClick(text)}
+      >
+        {text}
+      </button>
+    )
+  }
 }
-export default Button;
 
-
-
+export default Button
